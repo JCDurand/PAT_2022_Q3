@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.070,=\\srvst\students-data$\IT11-WVR\JeanIT11\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022-07-28 13:00:19.897,=\\srvst\students-data$\IT11-WVR\JeanIT11\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022-07-28 13:00:32.930,C:\Github\PAT_2022_Q3\PAT_u.pas=\\srvst\students-data$\IT11-WVR\JeanIT11\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022-07-28 13:00:32.930,C:\Github\PAT_2022_Q3\PAT_u.dfm=\\srvst\students-data$\IT11-WVR\JeanIT11\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2022-07-28 13:00:36.561,C:\Github\PAT_2022_Q3\PAT_p.dproj=\\srvst\students-data$\IT11-WVR\JeanIT11\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
