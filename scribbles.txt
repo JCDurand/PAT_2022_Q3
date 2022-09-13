@@ -1,12 +1,26 @@
-	TASK 1A:  Define the Task
-Write a brief description (approximately 200 words) in your own words to describe, in general terms, the problem/task and how the project will solve the problem. 
-Your explanation must highlight that:
-    • You understand the needs of the task that you have chosen.
-    • Your solution will solve the needs of the task.
-    • Provide a simple/ brief description of the scope of the project.
+The user is the target audience and will determine the needs and requirements of the program. Determine the user needs and processing requirements. 
+The aim is to identify the user(s), user needs and processing requirements of the system. Use a table or a 'use case diagram' to explain the role and activity of each user of the system.
+For example:
+As a learner I want to register so that I can play the Maths game to improve my skills
+WHO
+As a …
+WHAT
+I want to …
+WHY
+So that …
+User/Actor/role
+Goal/program feature required
+Value or benefit
+Use cases (goals only) – use the user stories, identify the goals that represent a functionality (functional requirement) that can be used or performed in isolation, i.e. a user will be able to request only that service/function in a single session and state in the format, (Register Learner (named by verb))
+Note: Each use case could possibly represent a form/screen.
 
-Task is clearly stated and described in the learner’s own words (Clear statement of the purpose and audience).
-Shows a thorough understanding of what the problem/task involves.
-Explains a possible solution to solving the problem/task.
+Role, activity, value
+(who, what, why)
+    • Who will use the system?
+    • What are the goals/ activities that user will perform?
+    • Why do they want/need it?
+
+Role, activity, value of all users (at least 2 different types of users) of the system thoroughly and correctly described.
+Well documented, clear and to the point.
 
 Task 5: Database must be populated with at least 5 entries.
