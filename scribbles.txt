@@ -1,4 +1,4 @@
-TASK 1A:  Define the Task
+	TASK 1A:  Define the Task
 Write a brief description (approximately 200 words) in your own words to describe, in general terms, the problem/task and how the project will solve the problem. 
 Your explanation must highlight that:
     • You understand the needs of the task that you have chosen.
@@ -8,3 +8,5 @@ Your explanation must highlight that:
 Task is clearly stated and described in the learner’s own words (Clear statement of the purpose and audience).
 Shows a thorough understanding of what the problem/task involves.
 Explains a possible solution to solving the problem/task.
+
+Task 5: Database must be populated with at least 5 entries.
