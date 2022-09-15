@@ -12,12 +12,12 @@ object dbgTeach: TdbgTeach
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object PageControl1: TPageControl
+  object pgc1: TPageControl
     Left = 0
     Top = 0
     Width = 705
     Height = 489
-    ActivePage = tbsResults
+    ActivePage = tbsWelcome
     TabOrder = 0
     object tbsWelcome: TTabSheet
       Caption = 'Welcome'
@@ -178,6 +178,22 @@ object dbgTeach: TdbgTeach
         Caption = 'Update Info'
         TabOrder = 8
       end
+      object btnTeachImp: TButton
+        Left = 464
+        Top = 94
+        Width = 97
+        Height = 25
+        Caption = 'Import Students'
+        TabOrder = 9
+      end
+      object btnTeachRemove: TButton
+        Left = 464
+        Top = 125
+        Width = 97
+        Height = 25
+        Caption = 'Remove Student'
+        TabOrder = 10
+      end
     end
     object tbsAdministrator: TTabSheet
       Caption = 'Administrator'
@@ -236,7 +252,7 @@ object dbgTeach: TdbgTeach
         TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
       end
-      object RadioGroup1: TRadioGroup
+      object rgpAdmTeach: TRadioGroup
         Left = 480
         Top = 280
         Width = 161
@@ -248,7 +264,7 @@ object dbgTeach: TdbgTeach
           'Email address')
         TabOrder = 3
       end
-      object btnAdminTeach: TButton
+      object btnAdmTeach: TButton
         Left = 480
         Top = 375
         Width = 75
@@ -256,7 +272,7 @@ object dbgTeach: TdbgTeach
         Caption = 'Update Info'
         TabOrder = 4
       end
-      object Button1: TButton
+      object btnAdmStu: TButton
         Left = 480
         Top = 186
         Width = 75
@@ -264,7 +280,7 @@ object dbgTeach: TdbgTeach
         Caption = 'Update Info'
         TabOrder = 5
       end
-      object RadioGroup2: TRadioGroup
+      object rgpAdmStu: TRadioGroup
         Left = 480
         Top = 96
         Width = 161
@@ -276,6 +292,14 @@ object dbgTeach: TdbgTeach
           'Email address'
           'Name of piece')
         TabOrder = 6
+      end
+      object btnAdmRemove: TButton
+        Left = 480
+        Top = 237
+        Width = 97
+        Height = 25
+        Caption = 'Remove Student'
+        TabOrder = 7
       end
     end
     object tbsAdjudicator: TTabSheet
@@ -405,11 +429,21 @@ object dbgTeach: TdbgTeach
         Caption = 'Submit'
         TabOrder = 11
       end
+      object SpinEdit4: TSpinEdit
+        Left = 440
+        Top = 272
+        Width = 121
+        Height = 22
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 12
+        Value = 0
+      end
     end
     object tbsResults: TTabSheet
       Caption = 'Results'
       ImageIndex = 4
-      object pblResults: TPanel
+      object pnlResults: TPanel
         Left = 24
         Top = 24
         Width = 649
@@ -422,6 +456,28 @@ object dbgTeach: TdbgTeach
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+      end
+      object redResults: TRichEdit
+        Left = 112
+        Top = 200
+        Width = 473
+        Height = 137
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        Zoom = 100
+      end
+      object btnGenRes: TButton
+        Left = 304
+        Top = 112
+        Width = 89
+        Height = 25
+        Caption = 'Generate Results'
+        TabOrder = 2
       end
     end
   end

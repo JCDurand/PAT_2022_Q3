@@ -5,11 +5,11 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Data.DB, Vcl.Grids, Vcl.DBGrids, dbModule;
+  Data.DB, Vcl.Grids, Vcl.DBGrids, dbModule, Vcl.Samples.Spin;
 
 type
   TdbgTeach = class(TForm)
-    PageControl1: TPageControl;
+    pgc1: TPageControl;
     tbsWelcome: TTabSheet;
     tbsTeacher: TTabSheet;
     tbsAdministrator: TTabSheet;
@@ -35,10 +35,10 @@ type
     dgbAdminTeach: TDBGrid;
     lblAdminStu: TLabel;
     lblAdminTeach: TLabel;
-    RadioGroup1: TRadioGroup;
-    btnAdminTeach: TButton;
-    Button1: TButton;
-    RadioGroup2: TRadioGroup;
+    rgpAdmTeach: TRadioGroup;
+    btnAdmTeach: TButton;
+    btnAdmStu: TButton;
+    rgpAdmStu: TRadioGroup;
     pnlAdjudicator: TPanel;
     lblAdjudiTable: TLabel;
     ledAdjNum: TLabeledEdit;
@@ -52,7 +52,13 @@ type
     btnAdjSubRnd4: TButton;
     btnAdjSubRnd3: TButton;
     btnAdjSubRnd2: TButton;
-    pblResults: TPanel;
+    pnlResults: TPanel;
+    redResults: TRichEdit;
+    btnGenRes: TButton;
+    btnTeachImp: TButton;
+    btnTeachRemove: TButton;
+    btnAdmRemove: TButton;
+    SpinEdit4: TSpinEdit;
   private
     { Private declarations }
   public

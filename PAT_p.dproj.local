@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899/12/30 00:00:00.000.930,C:\Github\PAT_2022_Q3\PAT_u.dfm=\\srvst\students-data$\IT11-WVR\JeanIT11\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.561,C:\Github\PAT_2022_Q3\PAT_p.dproj=\\srvst\students-data$\IT11-WVR\JeanIT11\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.070,=\\srvst\students-data$\IT11-WVR\JeanIT11\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.561,\\srvst\students-data$\IT11-WVR\JeanIT11\Embarcadero\Studio\Projects\Project1.dproj=C:\Github\PAT_2022_Q3\PAT_p.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.930,\\srvst\students-data$\IT11-WVR\JeanIT11\Embarcadero\Studio\Projects\Unit1.dfm=C:\Github\PAT_2022_Q3\PAT_u.dfm</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.930,\\srvst\students-data$\IT11-WVR\JeanIT11\Embarcadero\Studio\Projects\Unit1.pas=C:\Github\PAT_2022_Q3\PAT_u.pas</Transaction>
     <Transaction>1899/12/30 00:00:00.000.897,=\\srvst\students-data$\IT11-WVR\JeanIT11\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.930,C:\Github\PAT_2022_Q3\PAT_u.pas=\\srvst\students-data$\IT11-WVR\JeanIT11\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.070,=\\srvst\students-data$\IT11-WVR\JeanIT11\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2022/09/15 22:14:28.000.212,=C:\Users\Jean Durand\Documents\GitHub\PAT_2022_Q3\Unit1.pas</Transaction>
-    <Transaction>2022/09/15 22:15:04.000.181,C:\Users\Jean Durand\Documents\GitHub\PAT_2022_Q3\Unit1.dfm=C:\Users\Jean Durand\Documents\GitHub\PAT_2022_Q3\dbModule.dfm</Transaction>
-    <Transaction>2022/09/15 22:15:04.000.181,C:\Users\Jean Durand\Documents\GitHub\PAT_2022_Q3\Unit1.pas=C:\Users\Jean Durand\Documents\GitHub\PAT_2022_Q3\dbModule.pas</Transaction>
+    <Transaction>2022/09/15 22:15:04.000.181,C:\Users\Jean Durand\Documents\GitHub\PAT_2022_Q3\dbModule.dfm=C:\Users\Jean Durand\Documents\GitHub\PAT_2022_Q3\Unit1.dfm</Transaction>
+    <Transaction>2022/09/15 22:15:04.000.181,C:\Users\Jean Durand\Documents\GitHub\PAT_2022_Q3\dbModule.pas=C:\Users\Jean Durand\Documents\GitHub\PAT_2022_Q3\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>
