@@ -1,8 +1,7 @@
-object Form1: TForm1
+object dbgTeach: TdbgTeach
   Left = 0
   Top = 0
-  Caption = 'Form1'
-  ClientHeight = 457
+  ClientHeight = 486
   ClientWidth = 704
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -17,8 +16,8 @@ object Form1: TForm1
     Left = 0
     Top = 0
     Width = 705
-    Height = 457
-    ActivePage = tbsTeacher
+    Height = 489
+    ActivePage = tbsResults
     TabOrder = 0
     object tbsWelcome: TTabSheet
       Caption = 'Welcome'
@@ -66,6 +65,20 @@ object Form1: TForm1
     object tbsTeacher: TTabSheet
       Caption = 'Teacher'
       ImageIndex = 1
+      object lblTeach: TLabel
+        Left = 24
+        Top = 177
+        Width = 68
+        Height = 13
+        Caption = 'Teacher Table'
+      end
+      object lblStu: TLabel
+        Left = 24
+        Top = 322
+        Width = 67
+        Height = 13
+        Caption = 'Student Table'
+      end
       object pnlTeacher: TPanel
         Left = 24
         Top = 3
@@ -90,19 +103,20 @@ object Form1: TForm1
         EditLabel.Caption = 'Please enter your teacher number:'
         TabOrder = 1
       end
-      object btnSubmitTeach: TButton
+      object btnTeachSub: TButton
         Left = 24
-        Top = 136
+        Top = 123
         Width = 75
         Height = 25
         Caption = 'Submit'
         TabOrder = 2
       end
-      object DBGrid1: TDBGrid
-        Left = 240
-        Top = 72
-        Width = 433
+      object dbgTeachTeach: TDBGrid
+        Left = 24
+        Top = 196
+        Width = 289
         Height = 120
+        DataSource = DataModule1.dscTeach
         TabOrder = 3
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -110,14 +124,305 @@ object Form1: TForm1
         TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
       end
+      object dbgTeachStu: TDBGrid
+        Left = 24
+        Top = 338
+        Width = 289
+        Height = 120
+        DataSource = DataModule1.dscStu
+        TabOrder = 4
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+      end
+      object rgpTeachInfo: TRadioGroup
+        Left = 464
+        Top = 196
+        Width = 161
+        Height = 84
+        Caption = 'Teacher Info'
+        Items.Strings = (
+          'Name'
+          'Phone number'
+          'Email address')
+        TabOrder = 5
+      end
+      object bntTeachUpd: TButton
+        Left = 464
+        Top = 286
+        Width = 75
+        Height = 25
+        Caption = 'Update Info'
+        TabOrder = 6
+      end
+      object rgpTeachStuTable: TRadioGroup
+        Left = 464
+        Top = 338
+        Width = 161
+        Height = 84
+        Caption = 'Student Info'
+        Items.Strings = (
+          'Name'
+          'Phone number'
+          'Email address'
+          'Name of piece')
+        TabOrder = 7
+      end
+      object btnTeachStuUp: TButton
+        Left = 464
+        Top = 428
+        Width = 75
+        Height = 25
+        Caption = 'Update Info'
+        TabOrder = 8
+      end
     end
     object tbsAdministrator: TTabSheet
       Caption = 'Administrator'
       ImageIndex = 2
+      object lblAdminStu: TLabel
+        Left = 25
+        Top = 77
+        Width = 67
+        Height = 13
+        Caption = 'Student Table'
+      end
+      object lblAdminTeach: TLabel
+        Left = 24
+        Top = 261
+        Width = 68
+        Height = 13
+        Caption = 'Teacher Table'
+      end
+      object pnlAdminArea: TPanel
+        Left = 8
+        Top = 8
+        Width = 649
+        Height = 46
+        Caption = 'Administrator Area'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -27
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
+      object dgbAdminStu: TDBGrid
+        Left = 24
+        Top = 96
+        Width = 320
+        Height = 120
+        DataSource = DataModule1.dscStu
+        TabOrder = 1
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+      end
+      object dgbAdminTeach: TDBGrid
+        Left = 24
+        Top = 280
+        Width = 320
+        Height = 120
+        DataSource = DataModule1.dscTeach
+        TabOrder = 2
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+      end
+      object RadioGroup1: TRadioGroup
+        Left = 480
+        Top = 280
+        Width = 161
+        Height = 84
+        Caption = 'Teacher Info'
+        Items.Strings = (
+          'Name'
+          'Phone number'
+          'Email address')
+        TabOrder = 3
+      end
+      object btnAdminTeach: TButton
+        Left = 480
+        Top = 375
+        Width = 75
+        Height = 25
+        Caption = 'Update Info'
+        TabOrder = 4
+      end
+      object Button1: TButton
+        Left = 480
+        Top = 186
+        Width = 75
+        Height = 25
+        Caption = 'Update Info'
+        TabOrder = 5
+      end
+      object RadioGroup2: TRadioGroup
+        Left = 480
+        Top = 96
+        Width = 161
+        Height = 84
+        Caption = 'Student Info'
+        Items.Strings = (
+          'Name'
+          'Phone number'
+          'Email address'
+          'Name of piece')
+        TabOrder = 6
+      end
     end
     object tbsAdjudicator: TTabSheet
       Caption = 'Adjudicator'
       ImageIndex = 3
+      object lblAdjudiTable: TLabel
+        Left = 16
+        Top = 117
+        Width = 67
+        Height = 13
+        Caption = 'Student Table'
+      end
+      object pnlAdjudicator: TPanel
+        Left = 16
+        Top = 16
+        Width = 649
+        Height = 46
+        Caption = 'Adjudicator Area'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -27
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
+      object ledAdjNum: TLabeledEdit
+        Left = 424
+        Top = 152
+        Width = 121
+        Height = 21
+        EditLabel.Width = 109
+        EditLabel.Height = 13
+        EditLabel.Caption = 'Enter student number:'
+        TabOrder = 1
+      end
+      object btnAdjSub: TButton
+        Left = 424
+        Top = 179
+        Width = 75
+        Height = 25
+        Caption = 'Submit'
+        TabOrder = 2
+      end
+      object dbgAdjudictor: TDBGrid
+        Left = 16
+        Top = 136
+        Width = 361
+        Height = 113
+        DataSource = DataModule1.dscComp
+        TabOrder = 3
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+      end
+      object lblAdnRnd1: TLabeledEdit
+        Left = 16
+        Top = 336
+        Width = 121
+        Height = 21
+        EditLabel.Width = 40
+        EditLabel.Height = 13
+        EditLabel.Caption = 'Round 1'
+        TabOrder = 4
+      end
+      object lblAdjRnd2: TLabeledEdit
+        Left = 184
+        Top = 336
+        Width = 121
+        Height = 21
+        EditLabel.Width = 40
+        EditLabel.Height = 13
+        EditLabel.Caption = 'Round 2'
+        TabOrder = 5
+      end
+      object lblAdjRnd3: TLabeledEdit
+        Left = 362
+        Top = 336
+        Width = 121
+        Height = 21
+        EditLabel.Width = 40
+        EditLabel.Height = 13
+        EditLabel.Caption = 'Round 3'
+        TabOrder = 6
+      end
+      object lblAdjRnd4: TLabeledEdit
+        Left = 544
+        Top = 336
+        Width = 121
+        Height = 21
+        EditLabel.Width = 40
+        EditLabel.Height = 13
+        EditLabel.Caption = 'Round 4'
+        TabOrder = 7
+      end
+      object btnAdjSubRnd1: TButton
+        Left = 16
+        Top = 400
+        Width = 75
+        Height = 25
+        Caption = 'Submit'
+        TabOrder = 8
+      end
+      object btnAdjSubRnd4: TButton
+        Left = 544
+        Top = 400
+        Width = 75
+        Height = 25
+        Caption = 'Submit'
+        TabOrder = 9
+      end
+      object btnAdjSubRnd3: TButton
+        Left = 362
+        Top = 400
+        Width = 75
+        Height = 25
+        Caption = 'Submit'
+        TabOrder = 10
+      end
+      object btnAdjSubRnd2: TButton
+        Left = 184
+        Top = 400
+        Width = 75
+        Height = 25
+        Caption = 'Submit'
+        TabOrder = 11
+      end
+    end
+    object tbsResults: TTabSheet
+      Caption = 'Results'
+      ImageIndex = 4
+      object pblResults: TPanel
+        Left = 24
+        Top = 24
+        Width = 649
+        Height = 46
+        Caption = 'Results Area'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -27
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
     end
   end
 end

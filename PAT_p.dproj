@@ -99,7 +99,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="PAT_u.pas">
-            <Form>Form1</Form>
+            <Form>dbgTeach</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="dbModule.pas">
