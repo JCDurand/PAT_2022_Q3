@@ -1,0 +1,46 @@
+unit PAT_u;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Data.DB, Vcl.Grids, Vcl.DBGrids, dbModule;
+
+type
+  TdbgTeach = class(TForm)
+    PageControl1: TPageControl;
+    tbsWelcome: TTabSheet;
+    tbsTeacher: TTabSheet;
+    tbsAdministrator: TTabSheet;
+    tbsAdjudicator: TTabSheet;
+    pnlWelcome: TPanel;
+    lblUser: TLabel;
+    btnSubmit: TButton;
+    cmbUser: TComboBox;
+    pnlTeacher: TPanel;
+    ledTeacher: TLabeledEdit;
+    btnTeachSub: TButton;
+    dbgTeachTeach: TDBGrid;
+    dbgTeachStu: TDBGrid;
+    lblTeach: TLabel;
+    lblStu: TLabel;
+    tbsResults: TTabSheet;
+    rgpTeachInfo: TRadioGroup;
+    bntTeachUpd: TButton;
+    rgpTeachStuTable: TRadioGroup;
+    btnTeachStuUp: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dbgTeach: TdbgTeach;
+
+implementation
+
+{$R *.dfm}
+
+end.
