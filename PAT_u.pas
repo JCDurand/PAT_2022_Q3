@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Data.DB, Vcl.Grids, Vcl.DBGrids, dbModule, Vcl.Samples.Spin;
+  Data.DB, Vcl.Grids, Vcl.DBGrids, dbModule, Vcl.Samples.Spin, Vcl.Buttons;
 
 type
   TdbgTeach = class(TForm)
@@ -59,6 +59,17 @@ type
     btnTeachRemove: TButton;
     btnAdmRemove: TButton;
     SpinEdit4: TSpinEdit;
+    btnResetAd: TBitBtn;
+    btnResetT: TBitBtn;
+    btnResetR: TBitBtn;
+    btnResetAdj: TBitBtn;
+    procedure FormCreate(Sender: TObject);
+    procedure btnSubmitClick(Sender: TObject);
+    procedure Reset;
+    procedure btnResetTClick(Sender: TObject);
+    procedure btnResetAdClick(Sender: TObject);
+    procedure btnResetAdjClick(Sender: TObject);
+    procedure btnResetRClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -71,5 +82,64 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TdbgTeach.btnResetAdClick(Sender: TObject);
+begin
+  Reset;
+end;
+
+procedure TdbgTeach.btnResetAdjClick(Sender: TObject);
+begin
+  Reset;
+end;
+
+procedure TdbgTeach.btnResetRClick(Sender: TObject);
+begin
+  Reset;
+end;
+
+procedure TdbgTeach.btnResetTClick(Sender: TObject);
+begin
+  Reset;
+end;
+
+procedure TdbgTeach.btnSubmitClick(Sender: TObject);
+begin
+  case cmbUser.ItemIndex of
+    -1: ShowMessage('Please select a valid option.');
+    0:
+      begin
+        tbsTeacher.TabVisible := True;
+        tbsWelcome.TabVisible := False;
+      end;
+    1:
+      begin
+        tbsAdministrator.TabVisible := True;
+        tbsWelcome.TabVisible := False;
+      end;
+    2:
+      begin
+        tbsAdjudicator.TabVisible := True;
+        tbsWelcome.TabVisible := False;
+      end;
+  end;
+end;
+
+procedure TdbgTeach.FormCreate(Sender: TObject);
+begin
+  tbsTeacher.TabVisible := False;
+  tbsAdministrator.TabVisible := False;
+  tbsAdjudicator.TabVisible := False;
+  tbsResults.TabVisible := False;
+end;
+
+procedure TdbgTeach.Reset;
+begin
+  tbsTeacher.TabVisible := False;
+  tbsAdministrator.TabVisible := False;
+  tbsAdjudicator.TabVisible := False;
+  tbsResults.TabVisible := False;
+  tbsWelcome.TabVisible := True;
+end;
 
 end.

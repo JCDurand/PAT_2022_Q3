@@ -10,6 +10,7 @@ object dbgTeach: TdbgTeach
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pgc1: TPageControl
@@ -17,7 +18,7 @@ object dbgTeach: TdbgTeach
     Top = 0
     Width = 705
     Height = 489
-    ActivePage = tbsWelcome
+    ActivePage = tbsResults
     TabOrder = 0
     object tbsWelcome: TTabSheet
       Caption = 'Welcome'
@@ -49,6 +50,7 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Submit'
         TabOrder = 1
+        OnClick = btnSubmitClick
       end
       object cmbUser: TComboBox
         Left = 248
@@ -194,6 +196,17 @@ object dbgTeach: TdbgTeach
         Caption = 'Remove Student'
         TabOrder = 10
       end
+      object btnResetT: TBitBtn
+        Left = 598
+        Top = 55
+        Width = 75
+        Height = 25
+        Caption = '&Reset'
+        Kind = bkRetry
+        NumGlyphs = 2
+        TabOrder = 11
+        OnClick = btnResetTClick
+      end
     end
     object tbsAdministrator: TTabSheet
       Caption = 'Administrator'
@@ -300,6 +313,17 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Remove Student'
         TabOrder = 7
+      end
+      object btnResetAd: TBitBtn
+        Left = 582
+        Top = 60
+        Width = 75
+        Height = 25
+        Caption = '&Reset'
+        Kind = bkRetry
+        NumGlyphs = 2
+        TabOrder = 8
+        OnClick = btnResetAdClick
       end
     end
     object tbsAdjudicator: TTabSheet
@@ -439,6 +463,17 @@ object dbgTeach: TdbgTeach
         TabOrder = 12
         Value = 0
       end
+      object btnResetAdj: TBitBtn
+        Left = 590
+        Top = 68
+        Width = 75
+        Height = 25
+        Caption = '&Reset'
+        Kind = bkRetry
+        NumGlyphs = 2
+        TabOrder = 13
+        OnClick = btnResetAdjClick
+      end
     end
     object tbsResults: TTabSheet
       Caption = 'Results'
@@ -478,6 +513,17 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Generate Results'
         TabOrder = 2
+      end
+      object btnResetR: TBitBtn
+        Left = 598
+        Top = 76
+        Width = 75
+        Height = 25
+        Caption = '&Reset'
+        Kind = bkRetry
+        NumGlyphs = 2
+        TabOrder = 3
+        OnClick = btnResetRClick
       end
     end
   end
