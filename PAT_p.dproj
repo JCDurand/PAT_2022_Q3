@@ -103,7 +103,12 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="dbModule.pas">
-            <Form>DataModule1</Form>
+            <Form>dbPAT</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="dmPAT_u.pas">
+            <Form>dmPAT</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
@@ -1182,6 +1187,7 @@
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">False</Platform>
             </Platforms>
+            <ModelSupport>False</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>

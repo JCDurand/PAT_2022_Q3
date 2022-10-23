@@ -1,4 +1,4 @@
-object DataModule1: TDataModule1
+object dbPAT: TdbPAT
   OldCreateOrder = False
   Height = 335
   Width = 556

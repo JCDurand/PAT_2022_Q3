@@ -65,11 +65,14 @@ type
     btnResetAdj: TBitBtn;
     procedure FormCreate(Sender: TObject);
     procedure btnSubmitClick(Sender: TObject);
-    procedure Reset;
+    procedure ResetB;
     procedure btnResetTClick(Sender: TObject);
     procedure btnResetAdClick(Sender: TObject);
     procedure btnResetAdjClick(Sender: TObject);
     procedure btnResetRClick(Sender: TObject);
+    procedure btnTeachSubClick(Sender: TObject);
+    procedure btnTeachImpClick(Sender: TObject);
+    procedure btnTeachRemoveClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -85,22 +88,22 @@ implementation
 
 procedure TdbgTeach.btnResetAdClick(Sender: TObject);
 begin
-  Reset;
+  ResetB;
 end;
 
 procedure TdbgTeach.btnResetAdjClick(Sender: TObject);
 begin
-  Reset;
+  ResetB;
 end;
 
 procedure TdbgTeach.btnResetRClick(Sender: TObject);
 begin
-  Reset;
+  ResetB;
 end;
 
 procedure TdbgTeach.btnResetTClick(Sender: TObject);
 begin
-  Reset;
+  ResetB;
 end;
 
 procedure TdbgTeach.btnSubmitClick(Sender: TObject);
@@ -125,6 +128,86 @@ begin
   end;
 end;
 
+procedure TdbgTeach.btnTeachImpClick(Sender: TObject);
+var
+  sPath, sLine : String;
+  tFile : TextFile;
+  iNo, iPos : Integer;
+
+begin
+  sPath := InputBox('Import students', 'Enter the path of the text file:', '');
+  sLine := '';
+
+  if NOT (FileExists(sPath)) then
+  begin
+    ShowMessage('File does not exist');
+    Exit;
+  end;
+
+  AssignFile(tFile, sPath);
+
+  with dbPAT do
+  begin
+    tblStu.Filtered := False;
+    tblStu.Last;
+    tblStu.Insert;
+  end;
+
+  Reset(tFile);
+
+  while NOT Eof(tFile) do
+  begin
+    Readln(tFile, sLine);
+
+    iPos := Pos('#', sLine);
+    dbPAT.tblStu['TNum'] := StrToInt(Copy(sLine, 1, iPos-1));
+    Delete(sLine, 1, iPos);
+
+    iPos := Pos('#', sLine);
+    dbPAT.tblStu['StuName'] := Copy(sLine, 1, iPos-1);
+    Delete(sLine, 1, iPos);
+
+    iPos := Pos('#', sLine);
+    dbPAT.tblStu['StuPNum'] := Copy(sLine, 1, iPos-1);
+    Delete(sLine, 1, iPos);
+
+    iPos := Pos('#', sLine);
+    dbPAT.tblStu['StuPieceName'] := Copy(sLine, 1, iPos-1);
+    Delete(sLine, 1, iPos);
+
+    dbPAT.tblStu['StuEmName'] := Copy(sLine, 1);
+  end;
+
+  CloseFile(tFile);
+  dbPAT.tblStu.Post;
+end;
+
+procedure TdbgTeach.btnTeachRemoveClick(Sender: TObject);
+begin
+  dbPAT.tblStu.Delete;
+end;
+
+procedure TdbgTeach.btnTeachSubClick(Sender: TObject);
+var
+  cEnt : Char;
+begin
+  cEnt := ledTeacher.Text[1];
+
+  if NOT (cEnt IN ['0'..'9']) then
+    begin
+      ShowMessage('Please enter a valid number.');
+      Exit;
+    end;
+
+  with dbPAT do
+  begin
+    tblTeach.Filtered := True;
+    tblTeach.Filter := 'TNum= ' + cEnt;
+    tblStu.Filtered := True;
+    tblStu.Filter := 'TNum =' + cEnt;
+  end;
+end;
+
 procedure TdbgTeach.FormCreate(Sender: TObject);
 begin
   tbsTeacher.TabVisible := False;
@@ -133,13 +216,14 @@ begin
   tbsResults.TabVisible := False;
 end;
 
-procedure TdbgTeach.Reset;
+procedure TdbgTeach.ResetB;
 begin
   tbsTeacher.TabVisible := False;
   tbsAdministrator.TabVisible := False;
   tbsAdjudicator.TabVisible := False;
   tbsResults.TabVisible := False;
   tbsWelcome.TabVisible := True;
+
 end;
 
 end.

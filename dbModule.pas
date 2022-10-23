@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB;
 
 type
-  TDataModule1 = class(TDataModule)
+  TdbPAT = class(TDataModule)
     conPAT: TADOConnection;
     tblStu: TADOTable;
     tblComp: TADOTable;
@@ -21,7 +21,7 @@ type
   end;
 
 var
-  DataModule1: TDataModule1;
+  dbPAT: TdbPAT;
 
 implementation
 
