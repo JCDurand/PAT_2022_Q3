@@ -18,7 +18,7 @@ object dbgTeach: TdbgTeach
     Top = 0
     Width = 705
     Height = 489
-    ActivePage = tbsAdministrator
+    ActivePage = tbsResults
     TabOrder = 0
     object tbsWelcome: TTabSheet
       Caption = 'Welcome'
@@ -61,7 +61,8 @@ object dbgTeach: TdbgTeach
         Items.Strings = (
           'Teacher'
           'Administrator'
-          'Adjudicator')
+          'Adjudicator'
+          'Results')
       end
     end
     object tbsTeacher: TTabSheet
@@ -376,6 +377,7 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Submit'
         TabOrder = 2
+        OnClick = btnAdjSubClick
       end
       object dbgAdjudictor: TDBGrid
         Left = 16
@@ -437,6 +439,7 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Submit'
         TabOrder = 8
+        OnClick = btnAdjSubRnd1Click
       end
       object btnAdjSubRnd4: TButton
         Left = 544
@@ -445,6 +448,7 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Submit'
         TabOrder = 9
+        OnClick = btnAdjSubRnd4Click
       end
       object btnAdjSubRnd3: TButton
         Left = 362
@@ -453,6 +457,7 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Submit'
         TabOrder = 10
+        OnClick = btnAdjSubRnd3Click
       end
       object btnAdjSubRnd2: TButton
         Left = 184
@@ -461,16 +466,7 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Submit'
         TabOrder = 11
-      end
-      object SpinEdit4: TSpinEdit
-        Left = 440
-        Top = 272
-        Width = 121
-        Height = 22
-        MaxValue = 0
-        MinValue = 0
-        TabOrder = 12
-        Value = 0
+        OnClick = btnAdjSubRnd2Click
       end
       object btnResetAdj: TBitBtn
         Left = 590
@@ -480,7 +476,7 @@ object dbgTeach: TdbgTeach
         Caption = '&Reset'
         Kind = bkRetry
         NumGlyphs = 2
-        TabOrder = 13
+        TabOrder = 12
         OnClick = btnResetAdjClick
       end
     end
@@ -522,6 +518,7 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Generate Results'
         TabOrder = 2
+        OnClick = btnGenResClick
       end
       object btnResetR: TBitBtn
         Left = 598

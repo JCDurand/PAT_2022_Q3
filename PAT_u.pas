@@ -58,7 +58,6 @@ type
     btnTeachImp: TButton;
     btnTeachRemove: TButton;
     btnAdmRemove: TButton;
-    SpinEdit4: TSpinEdit;
     btnResetAd: TBitBtn;
     btnResetT: TBitBtn;
     btnResetR: TBitBtn;
@@ -78,9 +77,15 @@ type
     procedure btnAdmStuClick(Sender: TObject);
     procedure btnAdmRemoveClick(Sender: TObject);
     procedure btnAdmTeachClick(Sender: TObject);
+    procedure btnAdjSubClick(Sender: TObject);
+    procedure btnAdjSubRnd1Click(Sender: TObject);
+    procedure btnAdjSubRnd2Click(Sender: TObject);
+    procedure btnAdjSubRnd3Click(Sender: TObject);
+    procedure btnAdjSubRnd4Click(Sender: TObject);
+    procedure btnGenResClick(Sender: TObject);
   private
     { Private declarations }
-    bTNum : Boolean;
+    bTNum, bStuNum : Boolean;
   public
     { Public declarations }
   end;
@@ -107,6 +112,82 @@ begin
     end
     else
       ShowMessage('Please enter teacher number.');
+end;
+
+procedure TdbgTeach.btnAdjSubClick(Sender: TObject);
+var
+  iNum : Integer;
+begin
+  try
+    iNum := StrToInt(ledAdjNum.Text);
+  except
+    begin
+      ShowMessage('Please enter a valid number.');
+      Exit;
+    end;
+  end;
+
+  with dbPAT do
+  begin
+    tblComp.Filter := 'StuNum = ' + QuotedStr(IntToStr(iNum));
+    tblComp.Filtered := True;
+  end;
+
+  bStuNum := True;
+end;
+
+procedure TdbgTeach.btnAdjSubRnd1Click(Sender: TObject);
+var
+  iRes : Byte;
+begin
+  if bStuNum then
+  begin
+    iRes := StrToInt(lblAdnRnd1.Text);
+
+    case iRes of
+      0:  dbpat.tblComp['rnd1'] := False;
+      1:  dbpat.tblComp['rnd1'] := True;
+    end;
+  end;
+end;
+
+procedure TdbgTeach.btnAdjSubRnd2Click(Sender: TObject);
+var
+  iRes : Byte;
+begin
+  iRes := StrToInt(lblAdnRnd1.Text);
+
+    case iRes of
+      0:  dbpat.tblComp['rnd2'] := False;
+      1:  dbpat.tblComp['rnd2'] := True;
+    end;
+
+end;
+
+procedure TdbgTeach.btnAdjSubRnd3Click(Sender: TObject);
+var
+  iRes : Byte;
+begin
+  iRes := StrToInt(lblAdnRnd1.Text);
+
+    case iRes of
+      0:  dbpat.tblComp['rnd3'] := False;
+      1:  dbpat.tblComp['rnd3'] := True;
+    end;
+
+end;
+
+procedure TdbgTeach.btnAdjSubRnd4Click(Sender: TObject);
+var
+  iRes : Byte;
+begin
+  iRes := StrToInt(lblAdnRnd1.Text);
+
+  case iRes of
+    0:  dbpat.tblComp['rnd4'] := False;
+    1:  dbpat.tblComp['rnd4'] := True;
+  end;
+
 end;
 
 procedure TdbgTeach.btnAdmRemoveClick(Sender: TObject);
@@ -136,6 +217,49 @@ begin
     2: dbPAT.tblTeach['TEmail'] := InputBox('Edit Info', 'Enter new email address:', '');
   end;
   dbPAT.tblTeach.Post;
+end;
+
+procedure TdbgTeach.btnGenResClick(Sender: TObject);
+var
+  arrWinners: Array[1..10] of Integer;
+  arrNames: Array[1..10] of String;
+  iCount, I, J : Integer;
+  tFile : TextFile;
+begin
+  dbPAT.tblComp.First;
+  redResults.Clear;
+  iCount := 1;
+  AssignFile(tFile, 'Export.txt');
+
+  while NOT dbpat.tblComp.Eof do
+  begin
+    if dbpat.tblComp['rnd4'] = True then
+      begin
+        arrWinners[iCount] := dbPAT.tblComp['StuNum'];
+        Inc(iCount);
+      end;
+    dbpat.tblComp.Next;
+  end;
+
+  dbPAT.tblStu.First;
+  Rewrite(tFile);
+  for J := 1 to iCount do
+  begin
+    if dbPAT.tblStu.Locate('StuNum', arrWinners[J], [loCaseInsensitive]) then
+    begin
+      arrNames[J] := dbPAT.tblStu['StuName'];
+      Writeln(tFile,  IntToStr(dbpat.tblStu['TNum'])+ '#' +dbpat.tblStu['StuName']+ '#' +dbpat.tblStu['StuPNum']+ '#' +dbpat.tblStu['StuPieceName']+ '#' +dbpat.tblStu['StuEmName']);
+    end;
+  end;
+
+  CloseFile(tFile);
+
+  redResults.Lines.Add('COMPETITION RESULTS' + #13 + 'The winners are:' + #13);
+  for I := 1 to iCount do
+    begin
+      redResults.Lines.Add(arrNames[I]);
+    end;
+
 end;
 
 procedure TdbgTeach.btnResetAdClick(Sender: TObject);
@@ -175,6 +299,11 @@ begin
     2:
       begin
         tbsAdjudicator.TabVisible := True;
+        tbsWelcome.TabVisible := False;
+      end;
+    3:
+      begin
+        tbsResults.TabVisible := True;
         tbsWelcome.TabVisible := False;
       end;
   end;
@@ -287,6 +416,7 @@ begin
   tbsAdjudicator.TabVisible := False;
   tbsResults.TabVisible := False;
   bTNum := False;
+  bStuNum := False;
 end;
 
 procedure TdbgTeach.ResetB;
