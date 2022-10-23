@@ -160,6 +160,7 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Update Info'
         TabOrder = 6
+        OnClick = bntTeachUpdClick
       end
       object rgpTeachStuTable: TRadioGroup
         Left = 464

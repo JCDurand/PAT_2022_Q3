@@ -73,8 +73,10 @@ type
     procedure btnTeachSubClick(Sender: TObject);
     procedure btnTeachImpClick(Sender: TObject);
     procedure btnTeachRemoveClick(Sender: TObject);
+    procedure bntTeachUpdClick(Sender: TObject);
   private
     { Private declarations }
+    bTNum : Boolean;
   public
     { Public declarations }
   end;
@@ -85,6 +87,23 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TdbgTeach.bntTeachUpdClick(Sender: TObject);
+begin
+  if bTNum then
+    begin
+      dbPAT.tblTeach.Edit;
+      case rgpTeachInfo.ItemIndex of
+        -1: ShowMessage('Please select an option.');
+        0: dbPAT.tblTeach['TName'] := InputBox('Edit Info', 'Enter new name:', '');
+        1: dbPAT.tblTeach['TPhone_Num'] := InputBox('Edit Info', 'Enter new phone number:', '');
+        2: dbPAT.tblTeach['TEmail'] := InputBox('Edit Info', 'Enter new email address:', '');
+       end;
+      dbPAT.tblTeach.Post;
+    end
+    else
+      ShowMessage('Please enter teacher number.');
+end;
 
 procedure TdbgTeach.btnResetAdClick(Sender: TObject);
 begin
@@ -206,6 +225,7 @@ begin
     tblStu.Filtered := True;
     tblStu.Filter := 'TNum =' + cEnt;
   end;
+  bTNum := True;
 end;
 
 procedure TdbgTeach.FormCreate(Sender: TObject);
@@ -214,6 +234,7 @@ begin
   tbsAdministrator.TabVisible := False;
   tbsAdjudicator.TabVisible := False;
   tbsResults.TabVisible := False;
+  bTNum := False;
 end;
 
 procedure TdbgTeach.ResetB;

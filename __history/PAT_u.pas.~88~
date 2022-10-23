@@ -72,6 +72,7 @@ type
     procedure btnResetRClick(Sender: TObject);
     procedure btnTeachSubClick(Sender: TObject);
     procedure btnTeachImpClick(Sender: TObject);
+    procedure btnTeachRemoveClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -179,6 +180,11 @@ begin
 
   CloseFile(tFile);
   dbPAT.tblStu.Post;
+end;
+
+procedure TdbgTeach.btnTeachRemoveClick(Sender: TObject);
+begin
+  dbPAT.tblStu.Delete;
 end;
 
 procedure TdbgTeach.btnTeachSubClick(Sender: TObject);
