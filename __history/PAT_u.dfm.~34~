@@ -18,7 +18,7 @@ object dbgTeach: TdbgTeach
     Top = 0
     Width = 705
     Height = 489
-    ActivePage = tbsAdministrator
+    ActivePage = tbsTeacher
     TabOrder = 0
     object tbsWelcome: TTabSheet
       Caption = 'Welcome'
@@ -103,6 +103,7 @@ object dbgTeach: TdbgTeach
         EditLabel.Width = 168
         EditLabel.Height = 13
         EditLabel.Caption = 'Please enter your teacher number:'
+        MaxLength = 1
         TabOrder = 1
       end
       object btnTeachSub: TButton
@@ -112,13 +113,14 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Submit'
         TabOrder = 2
+        OnClick = btnTeachSubClick
       end
       object dbgTeachTeach: TDBGrid
         Left = 24
         Top = 196
         Width = 289
         Height = 120
-        DataSource = DataModule1.dscTeach
+        DataSource = dbPAT.dscTeach
         TabOrder = 3
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -131,7 +133,7 @@ object dbgTeach: TdbgTeach
         Top = 338
         Width = 289
         Height = 120
-        DataSource = DataModule1.dscStu
+        DataSource = dbPAT.dscStu
         TabOrder = 4
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -158,6 +160,7 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Update Info'
         TabOrder = 6
+        OnClick = bntTeachUpdClick
       end
       object rgpTeachStuTable: TRadioGroup
         Left = 464
@@ -187,6 +190,7 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Import Students'
         TabOrder = 9
+        OnClick = btnTeachImpClick
       end
       object btnTeachRemove: TButton
         Left = 464
@@ -195,6 +199,7 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Remove Student'
         TabOrder = 10
+        OnClick = btnTeachRemoveClick
       end
       object btnResetT: TBitBtn
         Left = 598
@@ -244,7 +249,7 @@ object dbgTeach: TdbgTeach
         Top = 96
         Width = 320
         Height = 120
-        DataSource = DataModule1.dscStu
+        DataSource = dbPAT.dscStu
         TabOrder = 1
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -257,7 +262,7 @@ object dbgTeach: TdbgTeach
         Top = 280
         Width = 320
         Height = 120
-        DataSource = DataModule1.dscTeach
+        DataSource = dbPAT.dscTeach
         TabOrder = 2
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -373,7 +378,7 @@ object dbgTeach: TdbgTeach
         Top = 136
         Width = 361
         Height = 113
-        DataSource = DataModule1.dscComp
+        DataSource = dbPAT.dscComp
         TabOrder = 3
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -472,6 +477,7 @@ object dbgTeach: TdbgTeach
         Kind = bkRetry
         NumGlyphs = 2
         TabOrder = 13
+        OnClick = btnResetAdjClick
       end
     end
     object tbsResults: TTabSheet
@@ -522,6 +528,7 @@ object dbgTeach: TdbgTeach
         Kind = bkRetry
         NumGlyphs = 2
         TabOrder = 3
+        OnClick = btnResetRClick
       end
     end
   end

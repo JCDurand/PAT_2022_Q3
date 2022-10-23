@@ -74,6 +74,7 @@ type
     procedure btnTeachImpClick(Sender: TObject);
     procedure btnTeachRemoveClick(Sender: TObject);
     procedure bntTeachUpdClick(Sender: TObject);
+    procedure btnTeachStuUpClick(Sender: TObject);
   private
     { Private declarations }
     bTNum : Boolean;
@@ -204,6 +205,25 @@ end;
 procedure TdbgTeach.btnTeachRemoveClick(Sender: TObject);
 begin
   dbPAT.tblStu.Delete;
+end;
+
+procedure TdbgTeach.btnTeachStuUpClick(Sender: TObject);
+begin
+  if bTNum then
+  begin
+    dbPAT.tblStu.Edit;
+    case rgpTeachStuTable.ItemIndex of
+      -1: ShowMessage('Please select an option.');
+      0: dbPAT.tblStu['StuName'] := InputBox('Student Info','Enter new name:', '');
+      1: dbPAT.tblStu['StuPName'] := InputBox('Student Info','Enter new phone number:', '');
+      2: dbPAT.tblStu['StuPieceName'] := InputBox('Student Info','Enter new piece name:', '');
+      3: dbPAT.tblStu['StuEmName'] := InputBox('Student Info','Enter new email address:', '');
+    end;
+  end
+  else
+    ShowMessage('Please enter teacher number.');
+
+  dbPAT.tblStu.Post;
 end;
 
 procedure TdbgTeach.btnTeachSubClick(Sender: TObject);

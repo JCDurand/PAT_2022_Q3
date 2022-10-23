@@ -182,6 +182,7 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Update Info'
         TabOrder = 8
+        OnClick = btnTeachStuUpClick
       end
       object btnTeachImp: TButton
         Left = 464
