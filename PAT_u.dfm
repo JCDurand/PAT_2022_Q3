@@ -18,7 +18,7 @@ object dbgTeach: TdbgTeach
     Top = 0
     Width = 705
     Height = 489
-    ActivePage = tbsTeacher
+    ActivePage = tbsAdministrator
     TabOrder = 0
     object tbsWelcome: TTabSheet
       Caption = 'Welcome'
@@ -290,6 +290,7 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Update Info'
         TabOrder = 4
+        OnClick = btnAdmTeachClick
       end
       object btnAdmStu: TButton
         Left = 480
@@ -298,6 +299,7 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Update Info'
         TabOrder = 5
+        OnClick = btnAdmStuClick
       end
       object rgpAdmStu: TRadioGroup
         Left = 480
@@ -319,6 +321,7 @@ object dbgTeach: TdbgTeach
         Height = 25
         Caption = 'Remove Student'
         TabOrder = 7
+        OnClick = btnAdmRemoveClick
       end
       object btnResetAd: TBitBtn
         Left = 582

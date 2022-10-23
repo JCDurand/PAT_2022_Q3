@@ -75,6 +75,9 @@ type
     procedure btnTeachRemoveClick(Sender: TObject);
     procedure bntTeachUpdClick(Sender: TObject);
     procedure btnTeachStuUpClick(Sender: TObject);
+    procedure btnAdmStuClick(Sender: TObject);
+    procedure btnAdmRemoveClick(Sender: TObject);
+    procedure btnAdmTeachClick(Sender: TObject);
   private
     { Private declarations }
     bTNum : Boolean;
@@ -104,6 +107,35 @@ begin
     end
     else
       ShowMessage('Please enter teacher number.');
+end;
+
+procedure TdbgTeach.btnAdmRemoveClick(Sender: TObject);
+begin
+  dbPAT.tblStu.Delete;
+end;
+
+procedure TdbgTeach.btnAdmStuClick(Sender: TObject);
+begin
+  dbPAT.tblStu.Edit;
+    case rgpAdmStu.ItemIndex of
+      -1: ShowMessage('Please select an option.');
+      0: dbPAT.tblStu['StuName'] := InputBox('Student Info','Enter new name:', '');
+      1: dbPAT.tblStu['StuPName'] := InputBox('Student Info','Enter new phone number:', '');
+      2: dbPAT.tblStu['StuPieceName'] := InputBox('Student Info','Enter new piece name:', '');
+      3: dbPAT.tblStu['StuEmName'] := InputBox('Student Info','Enter new email address:', '');
+    end;
+end;
+
+procedure TdbgTeach.btnAdmTeachClick(Sender: TObject);
+begin
+  dbPAT.tblTeach.Edit;
+  case rgpAdmTeach.ItemIndex of
+    -1: ShowMessage('Please select an option.');
+    0: dbPAT.tblTeach['TName'] := InputBox('Edit Info', 'Enter new name:', '');
+    1: dbPAT.tblTeach['TPhone_Num'] := InputBox('Edit Info', 'Enter new phone number:', '');
+    2: dbPAT.tblTeach['TEmail'] := InputBox('Edit Info', 'Enter new email address:', '');
+  end;
+  dbPAT.tblTeach.Post;
 end;
 
 procedure TdbgTeach.btnResetAdClick(Sender: TObject);
